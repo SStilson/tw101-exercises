@@ -45,8 +45,9 @@ public class TriangleExercises {
 //            ***
     private static void drawARightTriangle(int n) {
         for(int i = 1; i <= n; i++) {
-            String repeated = new String(new char[i]).replace("\0", "*");
-            System.out.print(repeated);
+            for(int j = 1; j <= i; j++) {
+                System.out.print("*");
+            }
             System.out.println();
         }
     }
