@@ -13,12 +13,12 @@ public class DiamondExercises {
 //             ***
 //            *****
     private static void drawAnIsoscelesTriangle(int n) {
-        for(int i = 0; i <= n; i++) {
-            for(int j = 0; j <= i; j++) {
-                System.out.print("*");
-            }
-            for(int k = i; k > 0; k--) {
+        for(int i = 1; i <= n; i++) {
+            for(int k = 0; k < n-i; k++) {
                 System.out.print(" ");
+            }
+            for(int j = 1; j < 2*i; j++) {
+                System.out.print("*");
             }
             System.out.println();
         }
@@ -32,7 +32,24 @@ public class DiamondExercises {
 //             ***
 //              *
     private static void drawADiamond(int n) {
-
+        for(int i = 1; i <= n; i++) {
+            for(int k = 0; k < n-i; k++) {
+                System.out.print(" ");
+            }
+            for(int j = 1; j < 2*i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        for(int i = n-1; i > 0; i--) {
+            for(int k = 0; k < n-i; k++) {
+                System.out.print(" ");
+            }
+            for(int j = 1; j < 2*i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 
 //    Diamond with Name
@@ -44,6 +61,24 @@ public class DiamondExercises {
 //            ***
 //             *
     private static void drawADiamondWithYourName(int n) {
-
+        for(int i = 1; i < n; i++) {
+            for(int k = 0; k < n-i; k++) {
+                System.out.print(" ");
+            }
+            for(int j = 1; j < 2*i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
+        System.out.println("Samantha");
+        for(int i = n-1; i > 0; i--) {
+            for(int k = 0; k < n-i; k++) {
+                System.out.print(" ");
+            }
+            for(int j = 1; j < 2*i; j++) {
+                System.out.print("*");
+            }
+            System.out.println();
+        }
     }
 }
