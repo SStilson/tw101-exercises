@@ -14,11 +14,15 @@ public class Node {
     }
 
     public void add(String nameOfNewNode) {
-        if(this.name == null) {
-            new Node(nameOfNewNode);
-        } else {
-            if(nameOfNewNode.compareTo(this.name) < 0) {
+        if(nameOfNewNode.compareTo(this.name) < 0) {
+            if(this.left == null) {
+                this.left = new Node(nameOfNewNode);
+            } else {
                 this.left.add(nameOfNewNode);
+            }
+        } else {
+            if (this.right == null) {
+                this.right = new Node(nameOfNewNode);
             } else {
                 this.right.add(nameOfNewNode);
             }
@@ -27,8 +31,15 @@ public class Node {
 
     public List<String> names() {
         List<String> namesList = new ArrayList<String>();
-        if(this.name == null) {
+        if(this.left == null && this.right == null) {
+            namesList.add(this.name);
             return namesList;
+        } else if (this.left == null) {
+            namesList.add(this.name);
+            namesList.addAll(this.right.names());
+        } else if (this.right == null) {
+            namesList.addAll(this.left.names());
+            namesList.add(this.name);
         } else {
             namesList.addAll(this.left.names());
             namesList.add(this.name);
