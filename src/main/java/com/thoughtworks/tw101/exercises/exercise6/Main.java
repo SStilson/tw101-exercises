@@ -17,9 +17,9 @@ public class Main {
         ArrayList<Monster> myMonsters = new ArrayList<Monster>();
         myMonsters.add(myOrc);
         myMonsters.add(myTroll);
-        for(int i = 0; i < myMonsters.size(); i++) {
-            myMonsters.get(i).takeDamage(10);
-            myMonsters.get(i).reportStatus();
+        for(Monster monster : myMonsters) {
+            monster.takeDamage(10);
+            monster.reportStatus();
         }
     }
 }
