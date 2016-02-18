@@ -31,7 +31,14 @@ public class Node {
 
     public List<String> names() {
         List<String> namesList = new ArrayList<String>();
-        if(this.left == null && this.right == null) {
+        if (this.name == null) {
+            return namesList;
+        } else {
+            namesList.addAll(this.left.names());
+            namesList.add(this.name);
+            namesList.addAll(this.right.names());
+        }
+        /*if(this.left == null && this.right == null) {
             namesList.add(this.name);
             return namesList;
         } else if (this.left == null) {
@@ -44,7 +51,7 @@ public class Node {
             namesList.addAll(this.left.names());
             namesList.add(this.name);
             namesList.addAll(this.right.names());
-        }
+        }*/
         return namesList;
     }
 }
