@@ -31,27 +31,13 @@ public class Node {
 
     public List<String> names() {
         List<String> namesList = new ArrayList<String>();
-        if (this.name == null) {
-            return namesList;
-        } else {
+        if (this.left != null) {
             namesList.addAll(this.left.names());
-            namesList.add(this.name);
+        }
+        namesList.add(this.name);
+        if (this.right != null) {
             namesList.addAll(this.right.names());
         }
-        /*if(this.left == null && this.right == null) {
-            namesList.add(this.name);
-            return namesList;
-        } else if (this.left == null) {
-            namesList.add(this.name);
-            namesList.addAll(this.right.names());
-        } else if (this.right == null) {
-            namesList.addAll(this.left.names());
-            namesList.add(this.name);
-        } else {
-            namesList.addAll(this.left.names());
-            namesList.add(this.name);
-            namesList.addAll(this.right.names());
-        }*/
         return namesList;
     }
 }
