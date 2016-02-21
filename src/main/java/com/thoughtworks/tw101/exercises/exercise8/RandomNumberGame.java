@@ -27,22 +27,32 @@ public class RandomNumberGame {
             Scanner input = new Scanner(System.in);
             System.out.println("Enter a guess: ");
             try {
-                int guess = Integer.parseInt(input.next());
-                userGuesses.add(guess);
-                if (guess == this.randomNum) {
-                    System.out.println("You guessed right!");
-                    for(int userGuess : userGuesses) {
-                        System.out.println("You guessed: " + userGuess);
-                    }
-                    userWin = true;
-                } else if (guess > this.randomNum) {
-                    System.out.println("You guessed too high!");
-                } else {
-                    System.out.println("You guessed too low!");
-                }
+                userWin = compareGuess(input, userGuesses);
             } catch (NumberFormatException ex) {
                 System.out.println("Sorry, we couldn't parse your input! Please try again.");
             }
+        }
+    }
+
+    private boolean compareGuess(Scanner input, ArrayList<Integer> userGuesses) {
+        int guess = Integer.parseInt(input.next());
+        userGuesses.add(guess);
+        if (guess == this.randomNum) {
+            winCondition(userGuesses);
+            return true;
+        } else if (guess > this.randomNum) {
+            System.out.println("You guessed too high!");
+            return false;
+        } else {
+            System.out.println("You guessed too low!");
+            return false;
+        }
+    }
+
+    private void winCondition(ArrayList<Integer> userGuesses) {
+        System.out.println("You guessed right!");
+        for(int userGuess : userGuesses) {
+            System.out.println("You guessed: " + userGuess);
         }
     }
 
